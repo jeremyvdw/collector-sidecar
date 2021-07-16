@@ -1,8 +1,8 @@
 hash: 8c3fa547f85bc8d3445aa71b93fac56bf51d503486867b79beadb97303d1c38d
 updated: 2017-06-19T12:35:05.244834712+02:00
 imports:
-- name: bitbucket.org/tebeka/strftime
-  version: 2194253a23c090a4d5953b152a3c63fb5da4f5a4
+- name: github.com/tebeka/strftime
+  version: c5509031a376b8ac449fd345ea6307949eca1a64
 - name: github.com/elastic/gosigar
   version: 2716c1fe855ee5c88eae707195e0688374458c92
 - name: github.com/go-ole/go-ole
