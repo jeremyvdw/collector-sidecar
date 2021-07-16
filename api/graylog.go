@@ -108,7 +108,9 @@ func UpdateRegistration(httpClient *http.Client, ctx *context.Ctx, status *grayl
 
 	if ctx.UserConfig.SendStatus {
 		metrics := &graylog.MetricsRequest{
-			Disks75: common.GetFileSystemList75(),
+			// This is broken when /proc is in a certain shape
+			//Disks75: common.GetFileSystemList75(),
+			Disks75: []string{},
 			CpuIdle: common.GetCpuIdle(),
 			Load1:   common.GetLoad1(),
 		}
