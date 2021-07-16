@@ -102,17 +102,17 @@ func UpdateRegistration(httpClient *http.Client, ctx *context.Ctx, status *grayl
 	c := rest.NewClient(httpClient)
 	c.BaseURL = ctx.ServerUrl
 
-	metrics := &graylog.MetricsRequest{
-		Disks75: common.GetFileSystemList75(),
-		CpuIdle: common.GetCpuIdle(),
-		Load1:   common.GetLoad1(),
-	}
-
 	registration := graylog.RegistrationRequest{}
-
 	registration.NodeId = ctx.UserConfig.NodeId
 	registration.NodeDetails.OperatingSystem = common.GetSystemName()
+
 	if ctx.UserConfig.SendStatus {
+		metrics := &graylog.MetricsRequest{
+			Disks75: common.GetFileSystemList75(),
+			CpuIdle: common.GetCpuIdle(),
+			Load1:   common.GetLoad1(),
+		}
+
 		registration.NodeDetails.Tags = ctx.UserConfig.Tags
 		registration.NodeDetails.IP = common.GetHostIP()
 		registration.NodeDetails.Status = status
